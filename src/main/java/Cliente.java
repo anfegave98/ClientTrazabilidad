@@ -28,7 +28,7 @@ public class Cliente {
                 opcion = lectura.nextInt();
                 switch (opcion) {
                     case 1:
-                        webResource = client.resource("http://localhost:8080/myapp/paciente");
+                        webResource = client.resource("http://localhost:8080/myapp/pacientes");
 
                         response = webResource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
 
@@ -44,7 +44,7 @@ public class Cliente {
 
                     case 2:
                         webResource = client
-                                .resource("http://localhost:8080/myapp/paciente");
+                                .resource("http://localhost:8080/myapp/pacientes");
 
                         ObjectMapper mapper = new ObjectMapper();
                         Paciente paciente = new Paciente();
@@ -73,7 +73,7 @@ public class Cliente {
                         //Luego se utilizara Jackson
                         //String input = "{\"empNo\":\"E11\",\"empName\":\"" + nombre + "\",\"position\":\"Salesman\"}";
 
-                        response = webResource.type(MediaType.APPLICATION_JSON).put(ClientResponse.class, input);
+                        response = webResource.type(MediaType.APPLICATION_JSON).post(ClientResponse.class, input);
 
                         if (response.getStatus() != 200) {
                             System.out.println(response.toString());
@@ -88,7 +88,7 @@ public class Cliente {
                     case 3:
                         System.out.println("Indique el Nombre del paciente");
                         String nombre3 = lectura.next();
-                        webResource = client.resource("http://localhost:8090/myapp/paciente/" + nombre3);
+                        webResource = client.resource("http://localhost:8090/myapp/pacientes/" + nombre3);
 
                         response = webResource.accept(MediaType.APPLICATION_JSON).delete(ClientResponse.class);
 
