@@ -63,11 +63,11 @@ public class Cliente {
                         
                         System.out.println("Ingrese la fecha");
                         String fecha = lectura.next();
-                        paciente.setTelephone(fecha);
+                        paciente.setDate(fecha);
                         
                         System.out.println("Ingrese el dato del contacto");
                         String contacto = lectura.next();
-                        paciente.setTelephone(contacto);
+                        paciente.setContacto(contacto);
                         
                         String input = mapper.writeValueAsString(paciente);
                         //Luego se utilizara Jackson
